@@ -1,8 +1,9 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, RequestMethod } from '@nestjs/common';
 import { RpaContrller } from './controllers/rpa.controller';
 import { RpaService } from './services/rpa.service';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ConfigModule } from '@nestjs/config';
+import { LoggerMiddleware } from './middlewares/logger.middleware';
 
 @Module({
   imports: [
@@ -23,4 +24,10 @@ import { ConfigModule } from '@nestjs/config';
   controllers: [RpaContrller],
   providers: [RpaService],
 })
-export class ApiGatewayModule {}
+export class ApiGatewayModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(LoggerMiddleware)
+      .forRoutes({ path: '*', method: RequestMethod.ALL });
+  }
+}
