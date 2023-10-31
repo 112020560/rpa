@@ -12,7 +12,7 @@ export class CompanyInterfaceRepository implements ICompanyInterfaceRepository{
 
     constructor(configService: ConfigService) {
         this.sqlConfig = configService.get<sql.config>('database');
-        console.log(this.sqlConfig)
+        //console.log(this.sqlConfig)
     }
 
     public getCompanyInterfaceGetAsync = async (companyId: string, serviceid: string): Promise<Array<CompanyInterfaceModel>> => {

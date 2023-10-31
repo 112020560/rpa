@@ -13,7 +13,7 @@ export class CaptchaRepository implements ICaptchaRepository {
 
     constructor(configService: ConfigService) {
         this.sqlConfig = configService.get<sql.config>('database');
-        console.log(this.sqlConfig)
+        //console.log(this.sqlConfig)
     }
 
     public async getCaptchaAsync(captchaInput: CaptchaInputModel): Promise<CaptchaRequestModel[] | CaptchaCountModel[]> {

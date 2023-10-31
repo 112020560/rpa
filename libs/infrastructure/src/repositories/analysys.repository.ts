@@ -11,7 +11,7 @@ export class AnalysisRepository implements IAnalysisRepository {
 
     constructor(configService: ConfigService) {
         this.sqlConfig = configService.get<sql.config>('database');
-        console.log(this.sqlConfig)
+        //console.log(this.sqlConfig)
     }
 
     public async ProcessAnalysisAsync(analysisModel: AnalysisModel): Promise<Array<AnalysisResponse>> {

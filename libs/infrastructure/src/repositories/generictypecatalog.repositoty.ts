@@ -13,7 +13,7 @@ export class GenericTypeRepository implements IGenericTypeRepository {
 
     constructor(configService: ConfigService) {
         this.sqlConfig = configService.get<sql.config>('database');
-        console.log(this.sqlConfig)
+        //console.log(this.sqlConfig)
     }
     
     public async getGenericTypeCatalogAsync(companyid: string, key001: string, key004: string): Promise<Array<GenericCatalogModel>> {

@@ -29,13 +29,13 @@ export class AppController {
 
   @MessagePattern({ cmd: "getcaptcha" })
   async generateRpaRequestAsync(body: GetCaptchaRequest) {
-    this.logger.log(`Received updatequeue request ${JSON.stringify(body)}`)
+    this.logger.log(`Received getcaptcha request ${JSON.stringify(body)}`)
     return await this.queryBus.execute(new GetCaptchaQuey(body));
   }
 
   @MessagePattern({ cmd: "setcaptcha" })
   async updateRpaRequestAsync(body: SetCaptchaRequest) {
-    this.logger.log(`Received updatequeue request ${JSON.stringify(body)}`)
+    this.logger.log(`Received setcaptcha request ${JSON.stringify(body)}`)
     return await this.queryBus.execute(new SetCaptchaComman(body));
   }
 }

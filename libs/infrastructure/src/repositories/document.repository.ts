@@ -12,7 +12,7 @@ export class DocumentsRepository implements IDocumentsRepository {
 
     constructor(configService: ConfigService) {
         this.sqlConfig = configService.get<sql.config>('database');
-        console.log(this.sqlConfig)
+        //console.log(this.sqlConfig)
     }
 
     public async GetDocumentListAsync(params: DocumentsParamsModel): Promise<Array<Documents>> {
